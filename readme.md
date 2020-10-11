@@ -3,7 +3,7 @@
 ## A VERY simple backup utility
 
 ### How it works:
-Dotfile Backup reads ~/.dotfilebackup.config and copies each path stored to ~/dotfiles.
+Dotfile Backup reads ~/.dotfilebackup.config and copies file listed to ~/dotfilemgmt/current
 The previous (overwritten) configs will be saved in ~/dotfilemgmt/prev
 
 ### Config format
