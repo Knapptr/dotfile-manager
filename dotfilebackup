@@ -1,0 +1,15 @@
+#! /bin/bash
+
+echo "Making duplicates of previous files"
+cp -a ~/dotfilemgmt/current/. ~/dotfilemgmt/prev/ 
+echo "Removing old backups"
+rm -f ~/dotfilemgmt/current/*
+echo "Copying requested dotfiles to ~/dotfiles"
+xargs -d '\n' -a .dotfilebackup.config -i cp {} ~/dotfilemgmt/current/ -r
+cp -r "$DOTFILEPATHS" ~/dotfilemgmt/current/ 
+cd ~/dotfilemgmt
+git add .
+echo "Commiting to git"
+git commit -m "Scripted backup"
+echo "Dotfiles backed up!"
+git push origin master
